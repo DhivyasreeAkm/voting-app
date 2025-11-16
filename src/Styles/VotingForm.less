@@ -1,0 +1,160 @@
+.voting-home-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .home-page-buttons {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+}
+
+.voting-form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  .voting-form-header {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    .go-to-home-page-button {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+
+  .voter-details {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    .voter-detail {
+      display: grid;
+      grid-template-columns: 40% 60%;
+      justify-items: start;
+      align-items: start;
+      gap: 8px;
+      input,
+      select {
+        padding: 4px 2px;
+      }
+
+      label {
+        text-align: start;
+      }
+
+      h3 {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+
+    .google-qr {
+      height: 350px;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+  }
+}
+.voting-form-submitted-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px; // optional for spacing
+
+  .submitted-page-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); // 2 columns of equal width
+    gap: 8px;
+    width: 100%;
+    max-width: 400px; // optional: constrain max width
+
+    @media (max-width: 500px) {
+      grid-template-columns: 1fr; // 1 column on small screens
+    }
+  }
+}
+
+.form-results {
+  .form-results-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .go-to-home-page-button {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+  .form-results-container {
+    display: flex;
+    flex-direction: column;
+    .form-results-sub-container {
+      display: flex;
+    }
+    .form-result {
+      display: flex;
+      flex: 1 1 45%;
+      border: 1px solid white;
+      padding: 4px 8px;
+    }
+  }
+}
+.results-loading {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    height: 70px;
+    display: inline-block;
+    animation: spin 1s linear infinite;
+  }
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .voting-form-container {
+    .voter-details {
+      .voter-detail {
+        grid-template-columns: 1fr;
+      }
+    }
+    .google-qr {
+      height: 250px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .voting-home-page {
+    .home-page-buttons {
+      gap: 8px;
+    }
+  }
+  .submitted-page-buttons {
+    gap: 8px;
+  }
+
+  .voting-form-container {
+    .voter-details {
+      gap: 12px;
+
+      .voter-detail {
+        gap: 4px;
+      }
+    }
+
+    .google-qr {
+      height: 200px;
+    }
+  }
+}

@@ -1,0 +1,21 @@
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import VotingForm from "./Components/VotingForm";
+import HomePage from "./Components/HomePage";
+import ResultPage from "./Components/ResultPage";
+import FormSubmittedPage from "./Components/FormSubmittedPage";
+
+const App = () => {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/form" element={<VotingForm />} />
+        <Route path="/results" element={<ResultPage />} />
+        <Route path="/submitted" element={<FormSubmittedPage />} />
+      </Routes>
+    </Router>
+  );
+};
+
+export default App;
