@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import type { IFormResults } from "../Types/VotingTypes";
 import lodingIcon from "../assets/loading.png";
@@ -94,15 +94,15 @@ const ResultPage = () => {
     </div>
   );
 };
-const getProcessedResults = (data: any[]) => {
-  const resultsMap = new Map();
-  data.forEach((detail) => {
-    const uniqueKey = `${detail.voterDistrict}_${detail.voterPoliticalParty}`;
-    const totalRowsCount = detail.totalRows;
-    const percentage = Math.round((detail.count / totalRowsCount) * 100);
-    resultsMap.set(uniqueKey, percentage);
-  });
-  return resultsMap;
-};
+// const getProcessedResults = (data: any[]) => {
+//   const resultsMap = new Map();
+//   data.forEach((detail) => {
+//     const uniqueKey = `${detail.voterDistrict}_${detail.voterPoliticalParty}`;
+//     const totalRowsCount = detail.totalRows;
+//     const percentage = Math.round((detail.count / totalRowsCount) * 100);
+//     resultsMap.set(uniqueKey, percentage);
+//   });
+//   return resultsMap;
+// };
 
 export default ResultPage;
