@@ -8,12 +8,17 @@ import FormSubmittedPage from "./Components/FormSubmittedPage";
 const App = () => {
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/form" element={<VotingForm />} />
-        <Route path="/results" element={<ResultPage />} />
-        <Route path="/submitted" element={<FormSubmittedPage />} />
-      </Routes>
+      <div className="app-wrapper">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/form" element={<VotingForm />} />
+          <Route path="/results" element={<ResultPage />} />
+          <Route path="/submitted" element={<FormSubmittedPage />} />
+        </Routes>
+      </div>
+      <footer className="footer-container">
+        <p>Developed by Dhivyasree, @Lumel USA</p>
+      </footer>
     </Router>
   );
 };

@@ -8,6 +8,11 @@
     flex-wrap: wrap;
   }
 }
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 90vh;
+}
 
 .voting-form-container {
   display: flex;
@@ -78,15 +83,72 @@
 }
 
 .form-results {
+  // .form-results-header {
+  //   display: flex;
+  //   align-items: center;
+  //   justify-content: space-between;
+  //   .form-result-sub-header {
+  //     display: flex;
+  //     gap: 16px;
+  //     .voter-detail {
+  //       display: flex;
+  //       gap: 8px;
+  //       align-items: center;
+  //     }
+  //   }
+  //   .go-to-home-page-button {
+  //     text-decoration: underline;
+  //     cursor: pointer;
+  //   }
+  // }
   .form-results-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+
+    .form-result-sub-header {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+
+      .voter-district {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+    }
+
     .go-to-home-page-button {
       text-decoration: underline;
       cursor: pointer;
     }
+
+    /* 📱 MOBILE RESPONSIVE */
+    @media (max-width: 600px) {
+      align-items: flex-start;
+      gap: 20px;
+      margin-bottom: 16px;
+      .form-result-sub-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      .voter-district {
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 4px !important;
+      }
+
+      .go-to-home-page-button {
+        align-self: flex-end;
+      }
+    }
   }
+
   .form-results-container {
     display: flex;
     flex-direction: column;
@@ -111,6 +173,9 @@
     display: inline-block;
     animation: spin 1s linear infinite;
   }
+}
+.footer-container {
+  text-align: end;
 }
 @keyframes spin {
   from {

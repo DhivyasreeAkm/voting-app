@@ -11,7 +11,7 @@ const FormSubmittedPage = () => {
         <button onClick={() => navigate("/form")}>
           Submit another response
         </button>
-        <button onClick={() => navigate("/")}>Go to Home</button>
+        <button onClick={() => navigate("/")}>Home</button>
       </div>
     </div>
   );

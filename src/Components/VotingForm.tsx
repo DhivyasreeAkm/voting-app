@@ -20,7 +20,6 @@ const VotingForm = () => {
   };
   const onFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("formData", formData);
 
     try {
       const response = await fetch("http://localhost:4999/api/form", {
@@ -28,9 +27,6 @@ const VotingForm = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
-
-      const data = await response.json();
-      console.log(data);
       navigate("/submitted");
     } catch (err) {
       console.error("Error submitting form:", err);
@@ -45,7 +41,7 @@ const VotingForm = () => {
           className="go-to-home-page-button"
           onClick={() => navigate("/")}
         >
-          Go to home
+          Home
         </strong>
       </div>
       <form onSubmit={onFormSubmit} className="voter-details">
@@ -129,9 +125,6 @@ const VotingForm = () => {
         <div className="voter-detail">
           <label>Voter fee: ₹1 — GPay to 9080358600</label>
           <img className="google-qr" src={googleQA} />
-        </div>
-        <div className="voter-detail">
-          <h3>Results will be updated every 24hrs</h3>
         </div>
         <button type="submit">Submit</button>
       </form>
