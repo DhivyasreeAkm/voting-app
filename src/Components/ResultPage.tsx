@@ -12,7 +12,7 @@ const ResultPage = () => {
     try {
       setFetchingResults(true);
       const response = await fetch(
-        `http://localhost:4999/api/results${
+        `https://emaily-solm.onrender.com/api/results${
           district ? `?district=${district}` : ""
         }`,
         { method: "GET" }
