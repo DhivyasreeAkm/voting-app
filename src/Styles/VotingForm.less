@@ -8,6 +8,10 @@
     flex-wrap: wrap;
   }
 }
+.go-to-home-page-button {
+  cursor: pointer;
+  text-decoration: underline;
+}
 .app-wrapper {
   display: flex;
   flex-direction: column;
@@ -23,10 +27,6 @@
     display: flex;
     gap: 50px;
     align-items: center;
-    .go-to-home-page-button {
-      cursor: pointer;
-      text-decoration: underline;
-    }
   }
 
   .voter-details {
@@ -120,12 +120,6 @@
         flex-wrap: wrap;
       }
     }
-
-    .go-to-home-page-button {
-      text-decoration: underline;
-      cursor: pointer;
-    }
-
     /* 📱 MOBILE RESPONSIVE */
     @media (max-width: 600px) {
       align-items: flex-start;
@@ -174,6 +168,19 @@
     animation: spin 1s linear infinite;
   }
 }
+.temp {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  .temp-text {
+    text-wrap-mode: nowrap;
+    font-size: 32px;
+    font-weight: 500;
+  }
+}
 .footer-container {
   text-align: end;
 }
@@ -200,6 +207,9 @@
 }
 
 @media (max-width: 480px) {
+  .temp-text {
+    font-size: 24px !important;
+  }
   .voting-home-page {
     .home-page-buttons {
       gap: 8px;

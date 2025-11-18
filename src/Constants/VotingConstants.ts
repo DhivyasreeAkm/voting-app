@@ -91,6 +91,7 @@ export const TAMILNADU_POLITICAL_PARTIES = [
   "Select political party",
   "DMK (Dravida Munnetra Kazhagam)",
   "AIADMK (All India Anna Dravida Munnetra Kazhagam)",
+  "TVK(Tamilaga Vettri Kazhagam)",
   "BJP (Bharatiya Janata Party)",
   "INC (Indian National Congress)",
   "PMK (Pattali Makkal Katchi)",

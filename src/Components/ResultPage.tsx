@@ -1,4 +1,4 @@
-import  { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import type { IFormResults } from "../Types/VotingTypes";
 import lodingIcon from "../assets/loading.png";
@@ -43,57 +43,64 @@ const ResultPage = () => {
     setDistrict(value);
     fetchResults(value);
   };
-
-  return fetchingResults ? (
-    <div className="results-loading">
-      <img src={lodingIcon} />
-    </div>
-  ) : (
-    <div className="form-results">
-      <div className="form-results-header">
-        <div className="form-result-sub-header">
-          <h2>Online Voting Results</h2>
-          <div className="voter-district">
-            <label>Voter District</label>
-            <select
-              value={district}
-              onChange={(e) => {
-                handleSearchByDistrict(e.target.value);
-              }}
-              required={true}
-            >
-              {ALL_TAMILNADU_DISTRICTS.map((dis, index) => (
-                <option key={dis} value={index ? dis : ""}>
-                  {dis}
-                </option>
-              ))}
-            </select>
-          </div>
-        </div>
-        <strong
-          className="go-to-home-page-button"
-          onClick={() => navigate("/")}
-        >
-         Home
-        </strong>
-      </div>
-      <div className="form-results-container">
-        {results.map((detail: IFormResults, index) => {
-          const initialIndex = index === 0;
-          return (
-            <div className="form-results-sub-container">
-              <span className="form-result">{detail.voterDistrict}</span>
-              <span className="form-result">{detail.voterPoliticalParty}</span>
-              <span className="form-result">
-                {initialIndex ? "Count" : `${detail.count}`}
-              </span>
-            </div>
-          );
-        })}
-      </div>
+  return (
+    <div className="temp">
+      <span className="temp-text">Results will be published after data collection</span>
+      <button onClick={() => navigate("/")}>Home</button>
     </div>
   );
+
+  // return fetchingResults ? (
+  //   <div className="results-loading">
+  //     <img src={lodingIcon} />
+  //   </div>
+  // ) : (
+  //   <div className="form-results">
+  //     <div className="form-results-header">
+  //       <div className="form-result-sub-header">
+  //         <h2>Online Voting Results</h2>
+  //         <div className="voter-district">
+  //           <label>Voter District</label>
+  //           <select
+  //             value={district}
+  //             onChange={(e) => {
+  //               handleSearchByDistrict(e.target.value);
+  //             }}
+  //             required={true}
+  //           >
+  //             {ALL_TAMILNADU_DISTRICTS.map((dis, index) => (
+  //               <option key={dis} value={index ? dis : ""}>
+  //                 {dis}
+  //               </option>
+  //             ))}
+  //           </select>
+  //         </div>
+  //       </div>
+  //       <strong
+  //         className="go-to-home-page-button"
+  //         onClick={() => navigate("/")}
+  //       >
+  //         Home
+  //       </strong>
+  //     </div>
+  //     <div className="form-results-container">
+  //       {results.map((detail: IFormResults, index) => {
+  //         const initialIndex = index === 0;
+  //         return (
+  //           <div className="form-results-sub-container">
+  //             <span className="form-result">{detail.voterDistrict}</span>
+  //             <span className="form-result">{detail.voterPoliticalParty}</span>
+  //             <span className="form-result">
+  //               {initialIndex ? "Count" : `${detail.count}`}
+  //             </span>
+  //           </div>
+  //         );
+  //       })}
+  //     </div>
+  //   </div>
+  // );
 };
+
 // const getProcessedResults = (data: any[]) => {
 //   const resultsMap = new Map();
 //   data.forEach((detail) => {
