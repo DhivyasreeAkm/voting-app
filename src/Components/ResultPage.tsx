@@ -1,48 +1,49 @@
-import { useEffect, useState } from "react";
+// import { useEffect,  useState
+//  } from "react";
 import { useNavigate } from "react-router-dom";
-import type { IFormResults } from "../Types/VotingTypes";
-import lodingIcon from "../assets/loading.png";
-import { ALL_TAMILNADU_DISTRICTS } from "../Constants/VotingConstants";
+// import type { IFormResults } from "../Types/VotingTypes";
+// import lodingIcon from "../assets/loading.png";
+// import { ALL_TAMILNADU_DISTRICTS } from "../Constants/VotingConstants";
 const ResultPage = () => {
   const navigate = useNavigate();
-  const [results, setResults] = useState<IFormResults[]>([]);
-  const [district, setDistrict] = useState("All");
-  const [fetchingResults, setFetchingResults] = useState(false);
-  const fetchResults = async (district: string) => {
-    try {
-      setFetchingResults(true);
-      const response = await fetch(
-        `https://emaily-solm.onrender.com/api/results${
-          district ? `?district=${district}` : ""
-        }`,
-        { method: "GET" }
-      );
-      const data = await response.json();
+  // const [results, setResults] = useState<IFormResults[]>([]);
+  // const [district, setDistrict] = useState("All");
+  // const [fetchingResults, setFetchingResults] = useState(false);
+  // const fetchResults = async (district: string) => {
+  //   try {
+  //     // setFetchingResults(true);
+  //     const response = await fetch(
+  //       `https://emaily-solm.onrender.com/api/results${
+  //         district ? `?district=${district}` : ""
+  //       }`,
+  //       { method: "GET" }
+  //     );
+  //     const data = await response.json();
 
-      if (data?.length) {
-        data.unshift({
-          voterDistrict: "District",
-          voterPoliticalParty: "Party",
-          count: 0,
-        });
-      }
+  //     if (data?.length) {
+  //       data.unshift({
+  //         voterDistrict: "District",
+  //         voterPoliticalParty: "Party",
+  //         count: 0,
+  //       });
+  //     }
 
-      setResults(data);
-    } catch (err) {
-      console.error("Error fetching results", err);
-    } finally {
-      setFetchingResults(false);
-    }
-  };
+  //     // setResults(data);
+  //   } catch (err) {
+  //     console.error("Error fetching results", err);
+  //   } finally {
+  //     setFetchingResults(false);
+  //   }
+  // };
 
-  useEffect(() => {
-    fetchResults("");
-  }, []);
+  // useEffect(() => {
+  //   fetchResults("");
+  // }, []);
 
-  const handleSearchByDistrict = (value: string) => {
-    setDistrict(value);
-    fetchResults(value);
-  };
+  // const handleSearchByDistrict = (value: string) => {
+  //   setDistrict(value);
+  //   fetchResults(value);
+  // };
   return (
     <div className="temp">
       <span className="temp-text">Results will be published after data collection</span>
