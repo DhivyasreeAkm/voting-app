@@ -10,7 +10,7 @@ const ResultPage = () => {
   const [fetchingResults, setFetchingResults] = useState(false);
   const fetchResults = async (district: string) => {
     try {
-      // setFetchingResults(true);
+      setFetchingResults(true);
       const response = await fetch(
         `https://emaily-gamma.vercel.app/api/results${district ? `?district=${district}` : ""}`,
         { method: "GET" }
@@ -25,7 +25,7 @@ const ResultPage = () => {
         });
       }
 
-      // setResults(data);
+      setResults(data);
     } catch (err) {
       console.error("Error fetching results", err);
     } finally {
@@ -99,15 +99,15 @@ const ResultPage = () => {
   );
 };
 
-const getProcessedResults = (data: any[]) => {
-  const resultsMap = new Map();
-  data.forEach((detail) => {
-    const uniqueKey = `${detail.voterDistrict}_${detail.voterPoliticalParty}`;
-    const totalRowsCount = detail.totalRows;
-    const percentage = Math.round((detail.count / totalRowsCount) * 100);
-    resultsMap.set(uniqueKey, percentage);
-  });
-  return resultsMap;
-};
+// const getProcessedResults = (data: any[]) => {
+//   const resultsMap = new Map();
+//   data.forEach((detail) => {
+//     const uniqueKey = `${detail.voterDistrict}_${detail.voterPoliticalParty}`;
+//     const totalRowsCount = detail.totalRows;
+//     const percentage = Math.round((detail.count / totalRowsCount) * 100);
+//     resultsMap.set(uniqueKey, percentage);
+//   });
+//   return resultsMap;
+// };
 
 export default ResultPage;
