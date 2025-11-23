@@ -22,7 +22,7 @@ const VotingForm = () => {
     e.preventDefault();
 
     try {
-      await fetch("https://emaily-solm.onrender.com/api/form", {
+      await fetch("https://emaily-gamma.vercel.app/api/form", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
